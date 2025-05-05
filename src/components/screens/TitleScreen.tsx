@@ -47,9 +47,7 @@ const Title = styled.h1`
   font-size: 4rem;
   margin-bottom: 2rem;
   text-align: center;
-  background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-primary);
   
   @media screen and (max-width: 1024px) {
     font-size: 3.5rem;
