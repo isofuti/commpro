@@ -222,7 +222,7 @@ const PhaseContent = styled.div`
   .note {
     margin-top: 1rem;
     font-style: italic;
-    color: var(--color-gray);
+
     font-size: 0.9rem;
     padding-left: 1rem;
     border-left: 2px solid rgba(164, 201, 250, 0.3);
@@ -231,7 +231,7 @@ const PhaseContent = styled.div`
 
 const Note = styled.div`
   font-size: 1rem;
-  color: var(--color-gray);
+
   margin-top: 2rem;
   font-style: italic;
   text-align: center;

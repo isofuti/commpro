@@ -12,9 +12,10 @@ const Screen = styled(motion.section)`
 `;
 
 const Logo = styled.div`
+  font-family: 'Days One', sans-serif;
   font-size: 4rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-weight: normal;
+  margin-bottom: -0.5rem;
 `;
 
 const Subtitle = styled.p`
@@ -45,7 +46,7 @@ const Subtitle = styled.p`
 
 const Title = styled.h1`
   font-size: 4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0rem;
   text-align: center;
   color: var(--color-primary);
   

@@ -149,8 +149,8 @@ const BenefitsScreen: React.FC = () => {
         <ContactInfo>
           <h3>Готовы начать работу?</h3>
           <p>Свяжитесь с нами для обсуждения вашего проекта</p>
-          <p>Email: contact@example.com</p>
-          <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+          <p>Email: info@daynet.pro</p>
+          <p>Телефон: +7 (831) 228-22-00</p>
         </ContactInfo>
       </Screen>
     </>
