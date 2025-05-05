@@ -62,12 +62,38 @@ const Title = styled.h1`
     font-size: 2.5rem;
     margin-bottom: 1rem;
   }
+  
+  @media screen and (max-width: 375px) {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    padding: 0 0.5rem;
+  }
 `;
 
 const Subheading = styled.div`
   font-size: 2rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
+  text-align: center;
+  
+  @media screen and (max-width: 1024px) {
+    font-size: 1.8rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  @media screen and (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  @media screen and (max-width: 375px) {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
 `;
 
 const CompanyInfo = styled.div`
