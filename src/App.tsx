@@ -6,6 +6,7 @@ import PainPointsScreen from './components/screens/PainPointsScreen';
 import ServicesScreen from './components/screens/ServicesScreen';
 import RoadmapScreen from './components/screens/RoadmapScreen';
 import BenefitsScreen from './components/screens/BenefitsScreen';
+import SituationScreen from './components/screens/SituationScreen';
 import AnimatedBackground from './components/AnimatedBackground';
 import { productionConfig } from './config/production-config';
 import './App.css';
@@ -28,6 +29,7 @@ const screenComponents = {
   services: ServicesScreen,
   roadmap: RoadmapScreen,
   benefits: BenefitsScreen,
+  situation: SituationScreen,
 };
 
 function App() {

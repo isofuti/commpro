@@ -19,27 +19,33 @@ export const screensConfig: ScreenConfig[] = [
     order: 2
   },
   {
+    id: 'situation',
+    title: 'Ситуация в сети',
+    enabled: true,
+    order: 3
+  },
+  {
     id: 'painPoints',
     title: 'Боли клиентов',
     enabled: true,
-    order: 3
+    order: 4
   },
   {
     id: 'services',
     title: 'Услуги',
     enabled: true,
-    order: 4
+    order: 5
   },
   {
     id: 'roadmap',
     title: 'Дорожная карта',
     enabled: true,
-    order: 5
+    order: 6
   },
   {
     id: 'benefits',
     title: 'Преимущества',
     enabled: true,
-    order: 6
+    order: 7
   }
 ]; 
