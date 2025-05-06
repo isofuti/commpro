@@ -7,7 +7,13 @@ import ServicesScreen from './components/screens/ServicesScreen';
 import RoadmapScreen from './components/screens/RoadmapScreen';
 import BenefitsScreen from './components/screens/BenefitsScreen';
 import AnimatedBackground from './components/AnimatedBackground';
+import { productionConfig } from './config/production-config';
 import './App.css';
+
+// Импортируем ScreenManager только в режиме разработки
+const ScreenManager = process.env.NODE_ENV === 'development' 
+  ? require('./components/admin/ScreenManager').default 
+  : null;
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -15,16 +21,24 @@ const AppContainer = styled.div`
   position: relative;
 `;
 
+const screenComponents = {
+  title: TitleScreen,
+  statistics: StatisticsScreen,
+  painPoints: PainPointsScreen,
+  services: ServicesScreen,
+  roadmap: RoadmapScreen,
+  benefits: BenefitsScreen,
+};
+
 function App() {
   return (
     <AppContainer>
       <AnimatedBackground />
-      <TitleScreen />
-      <StatisticsScreen />
-      <PainPointsScreen />
-      <ServicesScreen />
-      <RoadmapScreen />
-      <BenefitsScreen />
+      {process.env.NODE_ENV === 'development' && <ScreenManager />}
+      {productionConfig.screens.map(screen => {
+        const ScreenComponent = screenComponents[screen.id as keyof typeof screenComponents];
+        return <ScreenComponent key={screen.id} />;
+      })}
     </AppContainer>
   );
 }
