@@ -7,6 +7,7 @@ import ServicesScreen from './components/screens/ServicesScreen';
 import RoadmapScreen from './components/screens/RoadmapScreen';
 import BenefitsScreen from './components/screens/BenefitsScreen';
 import SituationScreen from './components/screens/SituationScreen';
+import AnalyticsScreen from './components/screens/AnalyticsScreen';
 import AnimatedBackground from './components/AnimatedBackground';
 import { productionConfig } from './config/production-config';
 import './App.css';
@@ -41,6 +42,7 @@ function App() {
         const ScreenComponent = screenComponents[screen.id as keyof typeof screenComponents];
         return <ScreenComponent key={screen.id} />;
       })}
+      <AnalyticsScreen />
     </AppContainer>
   );
 }

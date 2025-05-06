@@ -18,6 +18,7 @@
     "@types/styled-components": "^5.1.34",
     "framer-motion": "^10.16.4",
     "google-spreadsheet": "^4.1.1",
+    "googleapis": "^148.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.8.0",
@@ -29,7 +30,8 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "fetch-sheet": "ts-node scripts/fetch-google-sheet.ts",
+    "start": "npm run fetch-sheet && react-scripts start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2"
   }
 }

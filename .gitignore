@@ -24,4 +24,7 @@ yarn-error.log*
 .idea/
 .vscode/
 *.swp
-*.swo 
+*.swo
+
+# Add service-account.json to prevent sensitive credentials from being pushed
+service-account.json 
