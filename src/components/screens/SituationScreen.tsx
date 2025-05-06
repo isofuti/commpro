@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { keyframes, css } from 'styled-components';
+import { useInView } from 'framer-motion';
 
 const Screen = styled.section`
   min-height: 100vh;
@@ -194,7 +195,7 @@ const RepBarFill = styled.div<{percent: number}>`
   border-radius: 14px;
   background: linear-gradient(90deg, #ff4d4f 0%, #ffb300 40%, var(--color-primary) 100%);
   width: ${({percent}) => percent}%;
-  transition: width 1.2s cubic-bezier(.7,.2,.3,1);
+  transition: width 2.5s cubic-bezier(.7,.2,.3,1);
   position: absolute;
   left: 0; top: 0;
 `;
@@ -216,7 +217,7 @@ const RepBarDot = styled.div<{active?: boolean; pos?: string}>`
   top: 50%;
   left: ${({pos}) => pos || 0};
   transform: translate(-50%, -50%);
-  transition: left 1.2s cubic-bezier(.7,.2,.3,1), background 0.3s, border 0.3s;
+  transition: left 2.5s cubic-bezier(.7,.2,.3,1), background 0.3s, border 0.3s;
   box-shadow: ${({active}) => active ? '0 0 18px 2px #7cb0fa88' : 'none'};
 `;
 
@@ -289,6 +290,7 @@ const Title = styled.h2`
 
 const SituationScreen = () => {
   const barRef = React.useRef<HTMLDivElement>(null);
+  const isInView = useInView(barRef, { once: true });
   const [bar, setBar] = React.useState(0);
   const [dot, setDot] = React.useState('0%');
   const negLevel: 'низкий'|'средний'|'высокий' = 'высокий';
@@ -297,17 +299,19 @@ const SituationScreen = () => {
   const [shakeUser, setShakeUser] = React.useState(true);
 
   React.useEffect(() => {
-    setBar(0);
-    setDot('0%');
-    setTimeout(() => {
-      setBar(repPercent);
-      setDot(repDotPos);
-    }, 200);
+    if (isInView) {
+      setBar(0);
+      setDot('0%');
+      setTimeout(() => {
+        setBar(repPercent);
+        setDot(repDotPos);
+      }, 200);
+    }
     // Сбросить shake через 1.2s после mount
     const t1 = setTimeout(() => setShakeNeg(false), 1200);
     const t2 = setTimeout(() => setShakeUser(false), 1200);
     return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
+  }, [isInView]);
 
   return (
     <Screen>
@@ -352,7 +356,7 @@ const SituationScreen = () => {
 
         <Block>
           <BlockTitle>Оценка состояния репутации:</BlockTitle>
-          <RepBarWrap>
+          <RepBarWrap ref={barRef}>
             <RepBarBg>
               <RepBarFill percent={bar} />
               <RepBarDot pos={dot} active />

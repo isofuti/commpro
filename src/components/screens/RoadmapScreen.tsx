@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import AnimatedContainer from '../common/AnimatedContainer';
 import InteractiveCard from '../common/InteractiveCard';
-import Header from '../common/Header';
 
 const Screen = styled(motion.section)`
   min-height: 100vh;
@@ -297,7 +296,6 @@ const RoadmapScreen: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Header />
       <Title>Дорожная карта проекта:</Title>
       
       <AnimatedContainer>

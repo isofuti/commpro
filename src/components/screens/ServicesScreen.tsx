@@ -10,12 +10,6 @@ const Screen = styled(motion.section)`
   position: relative;
 `;
 
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 3rem;
-`;
-
 const Logo = styled.div`
   width: 50px;
   height: 50px;
@@ -189,12 +183,6 @@ const ServicesScreen: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Header>
-        <Logo>
-          <img src="/logo.svg" alt="DAYNET" />
-        </Logo>
-        <div>АГЕНТСТВО РЕПУТАЦИОННОГО МАРКЕТИНГА</div>
-      </Header>
       
       <Title>Стоимость услуг:</Title>
       

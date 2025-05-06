@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Header from '../common/Header';
 import AnimatedNumber from '../common/AnimatedNumber';
 import InteractiveCard from '../common/InteractiveCard';
 import ParallaxEffect from '../common/ParallaxEffect';
@@ -193,8 +192,6 @@ const StatisticsScreen: React.FC = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <Header />
-      
       <Title>Статистика за март:</Title>
       
       <Location>
