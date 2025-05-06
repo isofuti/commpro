@@ -1,30 +1,26 @@
-import { screensConfig, ScreenConfig } from './screens';
+import { ScreenConfig } from './screens';
 
-export const exportConfig = (enabledScreens: ScreenConfig[]) => {
+export const exportConfig = (screens: ScreenConfig[]) => {
   const config = {
-    screens: enabledScreens.map(screen => ({
+    screens: screens.map(screen => ({
       id: screen.id,
-      order: screen.order
+      order: screen.order,
+      enabled: screen.enabled
     }))
   };
 
-  // Создаем строку с конфигурацией
-  const configString = `export const productionConfig = ${JSON.stringify(config, null, 2)};`;
+  // Создаем строку с конфигурацией в формате TypeScript
+  const configString = `import { ScreenConfig } from './screens';\n\nexport const productionConfig: { screens: ScreenConfig[] } = ${JSON.stringify(config, null, 2)};`;
 
   // Создаем Blob с конфигурацией
-  const blob = new Blob([configString], { type: 'text/javascript' });
-  
-  // Создаем ссылку для скачивания
+  const blob = new Blob([configString], { type: 'text/typescript' });
   const url = URL.createObjectURL(blob);
+  
   const link = document.createElement('a');
   link.href = url;
   link.download = 'production-config.ts';
-  
-  // Добавляем ссылку на страницу и эмулируем клик
   document.body.appendChild(link);
   link.click();
-  
-  // Очищаем
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }; 
