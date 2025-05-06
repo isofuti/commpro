@@ -196,7 +196,7 @@ const ServicesScreen: React.FC = () => {
         <div>АГЕНТСТВО РЕПУТАЦИОННОГО МАРКЕТИНГА</div>
       </Header>
       
-      <Title>Что мы сделаем:</Title>
+      <Title>Стоимость услуг:</Title>
       
       <PriceList variants={containerVariants} initial="hidden" animate="visible">
         <PriceItem variants={itemVariants}>
