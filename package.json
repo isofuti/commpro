@@ -31,10 +31,10 @@
   },
   "scripts": {
     "fetch-sheet": "ts-node scripts/fetch-google-sheet.ts",
-    "start": "npm run fetch-sheet && react-scripts start",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "npm run fetch-sheet && cd commpro && react-scripts start",
+    "build": "cd commpro && set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "cd commpro && react-scripts test",
+    "eject": "cd commpro && react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

@@ -1,7 +1,7 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
-import { analyticsSheetsConfig } from '../src/data/analytics-sheets-config';
+import { analyticsSheetsConfig } from '../commpro/src/data/analytics-sheets-config';
 
 const SHEET_ID = '1EU9bIgYr0QTdZNRmR1YUwkHmAW9xmJ5ylZTecsT-rSY';
 const KEYFILE = './service-account.json';
@@ -54,7 +54,7 @@ async function fetchAllSheets() {
     });
   }
 
-  const outPath = path.resolve(__dirname, '../src/data/analytics-tables.ts');
+  const outPath = path.resolve(__dirname, '../commpro/src/data/analytics-tables.ts');
   fs.writeFileSync(
     outPath,
     `export interface TableCell { value: string; colspan?: number; rowspan?: number; }\n` +
