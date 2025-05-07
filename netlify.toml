@@ -1,7 +1,7 @@
 [build]
   base = "commpro"
   command = "npm run build"
-  publish = "commpro/build"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "18"
