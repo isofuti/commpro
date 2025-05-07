@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { analyticsTables, analyticsTablesSection1, analyticsTablesSection2, analyticsTablesSection3, TableCell, AnalyticsTable } from '../../data/analytics-tables';
+import { analyticsTables, TableCell, AnalyticsTable } from '../../data/analytics-tables';
 
 const GlassCard = styled.div`
   background: rgba(255, 255, 255, 0.05);
@@ -27,7 +27,7 @@ const GlassCard = styled.div`
 const Title = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: var(--color-primary);
+  color: var(--color-light);
 `;
 
 const TableContainer = styled.div`
@@ -36,12 +36,12 @@ const TableContainer = styled.div`
 `;
 
 const Table = styled.table`
-
   border-collapse: separate;
   border-spacing: 3px 8px;
   margin-top: 1rem;
   background: transparent;
   table-layout: fixed;
+  width: 100%;
 `;
 
 const BaseCell = styled.td<{ isInfo?: boolean }>`
@@ -55,41 +55,39 @@ const BaseCell = styled.td<{ isInfo?: boolean }>`
   vertical-align: middle;
   word-wrap: break-word;
   overflow-wrap: break-word;
-
   hyphens: auto;
   line-height: 1.4;
   box-sizing: border-box;
+  white-space: normal;
 `;
 
 const BaseHeader = styled.th<{ isInfo?: boolean }>`
   padding: 2px 2px;
-  width: 1136px;
   background: rgba(255,255,255,0.18);
   border-radius: 10px;
   font-size: 0.9em;
-  color: var(--color-primary);
-  font-family: 'Days One', sans-serif;
+  color: var(--color-light);
+  font-family: 'Roboto Flex', Arial, sans-serif;
   text-align: center;
   word-wrap: break-word;
   overflow-wrap: break-word;
-
   hyphens: auto;
   line-height: 1.4;
   box-sizing: border-box;
+  white-space: normal;
 `;
 
 // Стили для каждого столбца
 const Col1 = styled(BaseCell)`
+  width: 30px;
   min-width: 30px;
-  padding: 2px 2px;
-  font-size: 0.8em;
-  text-align: center;
+  max-width: 30px;
 `;
 
 const Col2 = styled(BaseCell)`
-  width: 140px;
-  min-width: 140px;
-  max-width: 140px;
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -98,23 +96,33 @@ const Col2 = styled(BaseCell)`
 `;
 
 const Col3 = styled(BaseCell)`
-  width: 100px;
+  width: 90px;
+  min-width: 90px;
+  max-width: 90px;
 `;
 
 const Col4 = styled(BaseCell)`
-  width: 80px;
+  width: 70px;
+  min-width: 70px;
+  max-width: 70px;
 `;
 
 const Col5 = styled(BaseCell)`
-  width: 115px;
+  width: 110px;
+  min-width: 110px;
+  max-width: 110px;
 `;
 
 const Col6 = styled(BaseCell)`
-  width: 70px;
+  width: 60px;
+  min-width: 60px;
+  max-width: 60px;
 `;
 
 const Col7 = styled(BaseCell)`
-  width: 600px;
+  width: 586px;
+  min-width: 586px;
+  max-width: 586px;
   word-break: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -122,14 +130,13 @@ const Col7 = styled(BaseCell)`
 
 // Стили для заголовков
 const Header1 = styled(BaseHeader)`
-  width: 1136px;
-  padding: 2px 2px;
-  font-size: 0.8em;
-  text-align: center;
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;
 `;
 
 const Header2 = styled(BaseHeader)`
-  width: 1136px;
+  width: 140px;
   min-width: 140px;
   max-width: 140px;
   white-space: nowrap;
@@ -138,23 +145,33 @@ const Header2 = styled(BaseHeader)`
 `;
 
 const Header3 = styled(BaseHeader)`
-  width: 568px;
+  width: 100px;
+  min-width: 100px;
+  max-width: 100px;
 `;
 
 const Header4 = styled(BaseHeader)`
-  width: 568px;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
 `;
 
 const Header5 = styled(BaseHeader)`
-  min-width: 30px;
+  width: 115px;
+  min-width: 115px;
+  max-width: 115px;
 `;
 
 const Header6 = styled(BaseHeader)`
-  min-width: 30px;
+  width: 70px;
+  min-width: 70px;
+  max-width: 70px;
 `;
 
 const Header7 = styled(BaseHeader)`
-  max-width: 350px;
+  width: 600px;
+  min-width: 600px;
+  max-width: 600px;
   word-break: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -173,9 +190,8 @@ const TableBlock = styled.div`
 `;
 
 const SectionTitle = styled.h3`
-
   font-size: 1.3rem;
-  color: var(--color-primary);
+  color: var(--color-light);
   margin-bottom: 0.5em;
   margin-top: 0;
 `;
@@ -186,6 +202,7 @@ const Section2Col1 = styled(BaseCell)`
   max-width: 533px;
   overflow-wrap: break-word;
   word-break: break-word;
+  text-align: right;
 `;
 
 const Section2Col2 = styled(BaseCell)`
@@ -199,7 +216,8 @@ const Section2Col2 = styled(BaseCell)`
 function AnalyticsScreen() {
   const allRows: TableCell[][] = analyticsTables[0].data;
   const section1 = allRows.slice(0, 3);
-  const section2 = allRows.slice(3, 11);
+  const section2 = allRows.slice(3, 11)
+    .filter(row => (row[0]?.value?.trim() || row[4]?.value?.trim()));
   const section3 = allRows.slice(11);
   const sections = [
     { name: '', data: section1 },
@@ -207,7 +225,6 @@ function AnalyticsScreen() {
     { name: '', data: section3 },
   ];
   const table = analyticsTables[0];
-  const colWidths = [50, 210, 110, 80, 140, 76, 470];
 
   const getCellComponent = (i: number, j: number, isInfo: boolean) => {
     const components = [
@@ -229,33 +246,64 @@ function AnalyticsScreen() {
                 <tbody>
                   {section.data.map((row, i) => (
                     <tr key={i}>
-                      {row.map((cell, j) => {
-                        let CellComponent = getCellComponent(i, j, i === 5);
-                        if (sectionIdx === 1 && j === 0) CellComponent = Section2Col1;
-                        if (sectionIdx === 1 && j === 1) CellComponent = Section2Col2;
-                        if (j === 1 && typeof cell.value === 'string' && cell.value.startsWith('http')) {
-                          return (
-                            <CellComponent
-                              key={j}
-                              colSpan={cell.colspan}
-                              rowSpan={cell.rowspan}
-                              isInfo={i === 5}
-                            >
-                              <a href={cell.value} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>{cell.value}</a>
-                            </CellComponent>
-                          );
-                        }
-                        return (
-                          <CellComponent
-                            key={j}
-                            colSpan={cell.colspan}
-                            rowSpan={cell.rowspan}
-                            isInfo={i === 5}
-                          >
-                            {cell.value}
-                          </CellComponent>
-                        );
-                      })}
+                      {sectionIdx === 1 ? (
+                        <>
+                          <Section2Col1 colSpan={row[0]?.colspan}>
+                            {row[0]?.value
+                              ?.replace(/(Да|Нет|Да\/Нет)(?=\s|$)/g, '$1<br/>')
+                              ?.replace(/\n/g, '<br/>')
+                              ? <span dangerouslySetInnerHTML={{ __html: row[0]?.value
+                                .replace(/(Да|Нет|Да\/Нет)(?=\s|$)/g, '$1<br/>')
+                                .replace(/\n/g, '<br/>') }} />
+                              : null}
+                          </Section2Col1>
+                          <Section2Col2 colSpan={row[4]?.colspan}>{row[4]?.value}</Section2Col2>
+                        </>
+                      ) : (
+                        sectionIdx === 2 ? [
+                          <Col1 key="col1">{row[0]?.value || ''}</Col1>,
+                          <Col2 key="col2">
+                            {row[1]?.value && typeof row[1].value === 'string' && row[1].value.startsWith('http') ? (
+                              <a href={row[1].value} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>{row[1].value}</a>
+                            ) : (
+                              row[1]?.value || ''
+                            )}
+                          </Col2>,
+                          <Col3 key="col3">{row[2]?.value || ''}</Col3>,
+                          <Col4 key="col4">{row[3]?.value || ''}</Col4>,
+                          <Col5 key="col5">{row[4]?.value || ''}</Col5>,
+                          <Col6 key="col6">{row[5]?.value || ''}</Col6>,
+                          <Col7 key="col7">{row[6]?.value || ''}</Col7>
+                        ] : (
+                          row.map((cell, j) => {
+                            let CellComponent = getCellComponent(i, j, i === 5);
+                            if (sectionIdx === 1 && j === 0) CellComponent = Section2Col1;
+                            if (sectionIdx === 1 && j === 1) CellComponent = Section2Col2;
+                            if (j === 1 && typeof cell.value === 'string' && cell.value.startsWith('http')) {
+                              return (
+                                <CellComponent
+                                  key={j}
+                                  colSpan={cell.colspan}
+                                  rowSpan={cell.rowspan}
+                                  isInfo={i === 5}
+                                >
+                                  <a href={cell.value} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline' }}>{cell.value}</a>
+                                </CellComponent>
+                              );
+                            }
+                            return (
+                              <CellComponent
+                                key={j}
+                                colSpan={cell.colspan}
+                                rowSpan={cell.rowspan}
+                                isInfo={i === 5}
+                              >
+                                {cell.value}
+                              </CellComponent>
+                            );
+                          })
+                        )
+                      )}
                     </tr>
                   ))}
                 </tbody>
