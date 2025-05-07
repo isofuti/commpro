@@ -1,7 +1,7 @@
 [build]
-  command = "npm install && npm run build"
-  publish = "build"
-  base = "/"
+  base = "commpro"
+  command = "npm run build"
+  publish = "commpro/build"
 
 [build.environment]
   NODE_VERSION = "18"
@@ -11,4 +11,4 @@
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
